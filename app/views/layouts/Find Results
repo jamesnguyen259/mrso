@@ -1,0 +1,83 @@
+Searching 2199 files for "images_sp"
+
+0 matches
+
+Searching 2199 files for "img_sp"
+
+/Users/admin/workspace/ruby/mrso/app/assets/stylesheets/custom.scss:
+  141  /*------------end social simptip----------------*/
+  142  .nav li:nth-child(1) a{
+  143:   background: url(img_sprite.png) -7px -9px;
+  144  }
+  145  .nav li:nth-child(2) a{
+  146:   background: url(img_sprite.png) -49px -8px;
+  147  }
+  148  .nav li:nth-child(3) a{
+  149:   background: url(img_sprite.png) -90px -9px;
+  150  }
+  151  .nav li:nth-child(4) a{
+  152:   background: url(img_sprite.png) -130px -8px;
+  153  }
+  154  .nav li:nth-child(5) a{
+  155:   background: url(img_sprite.png) -175px -9px;
+  156  }
+  157  .nav li:nth-child(6) a{
+  158:   background: url(img_sprite.png) -216px -9px;
+  159  }
+  160  ul.header_right_box{
+  ...
+  184    width: 20px;
+  185    height: 25px;
+  186:   background: url(img_sprite.png) -258px -9px;
+  187    display: inline-block;
+  188  }
+  ...
+  524    width: 20px;
+  525  height: 20px;
+  526: background: url(img_sprite.png) -7px -42px;
+  527  float: left;
+  528  margin-right: 8%;
+  ...
+  538  }
+  539  i.icon2{
+  540:   background: url(img_sprite.png) -33px -42px;
+  541  }
+  542  i.icon3{
+  543:   background: url(img_sprite.png) -60px -42px;
+  544  }
+  545  .content{
+  ...
+  609    width: 20px;
+  610  height: 20px;
+  611: background: url(img_sprite.png) -85px -46px;
+  612  display: inline-block;
+  613  position: absolute;
+  ...
+  619  width: 20px;
+  620  height: 20px;
+  621: background: url(img_sprite.png) -7px -42px;
+  622  float: left;
+  623  margin-right:4%;
+  ...
+  995  width: 20px;
+  996  height: 20px;
+  997: background: url(img_sprite.png) -85px -49px;
+  998  display: inline-block;
+  999  vertical-align: middle;
+
+/Users/admin/workspace/ruby/mrso/log/development.log:
+    <binary>
+
+/Users/admin/workspace/ruby/mrso/tmp/cache/assets/sprockets/v3.0/4F/4F0GkJuwRUs2MAw1JeAWQKJBImWMd9iEHxmtz3zzN7g.cache:
+    <binary>
+
+/Users/admin/workspace/ruby/mrso/tmp/cache/assets/sprockets/v3.0/6O/6Om-h0rtjLT_Kc7dHRymC11CzmTIxOWlWPo6RvqC_HQ.cache:
+    <binary>
+
+/Users/admin/workspace/ruby/mrso/tmp/cache/assets/sprockets/v3.0/_R/_rgV2N6WgWTp3cPWMtN3xvI0S7WbbYVkVyikQga1taY.cache:
+    <binary>
+
+/Users/admin/workspace/ruby/mrso/tmp/cache/assets/sprockets/v3.0/uK/uKJbxnyrO4ZJApFmgjRKqoU01haS-_cFHU0vMh1o-rA.cache:
+    <binary>
+
+161 matches across 6 files
