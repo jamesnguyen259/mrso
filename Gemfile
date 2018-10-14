@@ -19,6 +19,7 @@ gem "jquery-rails"
 gem "cloudinary"
 gem "carrierwave"
 gem "carrierwave-base64"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
