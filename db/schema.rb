@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_032540) do
+ActiveRecord::Schema.define(version: 2018_10_15_104133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 2018_10_10_032540) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_films", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "film_id", null: false
   end
 
   create_table "comments", force: :cascade do |t|
