@@ -1,0 +1,36 @@
+<div class="content">
+
+	<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="card text-center">
+        <div class="card-body" id="card">
+        	<br>
+          <h5 class="card-title">Review of <%= link_to @user.email, user_path_url(@user), class: "movie__title" %> for film: <%= @film.name %></h5>
+          <hr>
+          <div class="register">
+						<p class="m_4"><%= @review.content.html_safe %></p>
+				    <br><br>    	
+				    <div class="clearfix"> </div>
+				  </div>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="row">
+            <div class="col">
+              <a href=""><i class="fas fa-map"></i></a>
+            </div>
+            <div class="col">
+              <a href="mailto:test@test.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="col">
+              <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+</div>
+</div>
+<br><br>

@@ -13,7 +13,9 @@
       	<p class="movie_option"><strong>Category: </strong><a href="#">Adventure</a>, <a href="#">Fantazy</a></p>
       	<p class="movie_option"><strong>Release date: </strong><%= @film.release_day %></p>
       	<p class="movie_option"><strong>Director: </strong><%= @film.author %></p>
-        <div class="down_btn"><a class="btn1" href="#"><span></span>Review</a></div>
+        <% if user_signed_in? %>
+        <div class="down_btn"><a class="btn1" data-toggle="modal" data-target="#myModal"><span></span>Review</a></div>
+        <% end %>
       </div>
 
       <div class="clearfix"></div>
@@ -22,20 +24,70 @@
       <div class="single">
         <h1>Reviews</h1>
         <ul class="single_list">
+          <% @reviews.each do |review| %>
+          <div class="container-fluid">
+            <div>
+              <div class="card text-center">
+                <div class="card-body" id="card">
+                  <br>
+                  <div class="register">
+                    <div class="text">
+                      <%= review.content.html_safe %>
+        </div></p>
+        <%= link_to "Read_more", review %>
+      </div>
+                    <br><br>      
+                    <div class="clearfix"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <% end %>
+          
+        </div>
 			    <li>
-			      <div class="preview"><a href="#"><img src="images/2.jpg" class="img-responsive" alt=""></a></div>
-			      <div class="data">
-			        <div class="title">Movie  /  2 hours ago  /  <a href="#">See more</a></div>
-			          <p>Review content here</p>
-			      </div>
 			      <div class="clearfix"></div>
 			    </li>
 			  </ul>
       </div>
     </div>
 
+
     <div class="col-md-3">
     </div>
     <div class="clearfix"></div>
   </div>
 </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New review for film: <%= @film.name %></h4>
+                  </div>
+                        <div class="">
+                          <div class="content">
+                            <div class="register-but">
+                              <%= form_for @review do |f| %>
+                              <%= field_set_tag nil, class: "form-group" do %>
+                             
+                              <%= f.text_area :content, rows: 10, cols: 25, :class => "tinymce" %>
+                              <%= f.hidden_field :film_id, value: @film.id %>
+                              <% end %>
+                              <div class="actions">
+                                <%= f.submit "Done" %>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            <% end %>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="clearfix"> </div>
+<%= tinymce %>
+
+                </div>
+              </div>
+            </div>
+<%= javascript_include_tag "modal_js" %>
