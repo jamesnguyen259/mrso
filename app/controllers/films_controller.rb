@@ -17,7 +17,8 @@ class FilmsController < ApplicationController
   end
 
 	def show
-		@review = @film.reviews.new
+		@review = current_user.reviews.new
+		@reviews = @film.reviews
 	end
 
 	def edit; end

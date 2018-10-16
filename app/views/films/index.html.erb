@@ -7,12 +7,12 @@
                   <% @films.each do |film| %>
                    	<div class="movie movie-test movie-test-dark movie-test-left">
                       <div class="movie__images">
-                          <a href="single.html" class="movie-beta__link">
+                          <a class="movie-beta__link">
                             <%= image_tag film.picture_url, class: "img-responsive" %>
                           </a>
                       </div>
 											<div class="movie__info">
-                        <a href="single.html" class="movie__title"><%= film.name %></a>
+												<%= link_to film.name, film, class: "movie__title" %>
                         <p class="movie__time">80 min</p>
 												<p class="movie__option"><a href="single.html">Contray</a> | <a href="single.html">Dolor sit</a> | <a href="single.html">Drama</a></p>
                         <ul class="list_6">
