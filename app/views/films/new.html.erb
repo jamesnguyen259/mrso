@@ -10,7 +10,9 @@
 				  <% end %>
 
 				  <%= field_set_tag nil, class: "form-group" do %>
-				  <%= f.text_field :description, class: "form-control", id: "example-email",
+				  <!-- <%= f.text_field :description, class: "form-control", id: "example-email",
+				    placeholder: "description" %> -->
+          <%= f.text_area :description, rows: 10, cols: 25, :class => "tinymce form-control", id: "example-email",
 				    placeholder: "description" %>
 				  <% end %>
 				  <div class="col-sm-4">
@@ -27,3 +29,4 @@
   </div>
 </div>
 <br><br>
+<%= tinymce %>
