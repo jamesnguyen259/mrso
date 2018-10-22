@@ -11,8 +11,10 @@ class FilmsController < ApplicationController
 
   def create
   	@film = Film.new film_params
-  	unless @film.save
-  		render :new
+  	if @film.save
+  		redirect_to @film
+		else
+			render :new
   	end
   end
 

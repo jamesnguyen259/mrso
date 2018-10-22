@@ -6,11 +6,11 @@
       <div class="card text-center">
         <div class="card-body" id="card">
         	<br>
-          <h5 class="card-title">Review of <%= link_to @user.email, user_path_url(@user), class: "movie__title" %> for film: <%= @film.name %></h5>
+          <h5 class="card-title">Review of <%= link_to @user.email, user_path(@user), class: "movie__title" %> for film: <%= link_to @film.name, film_path(@film), class: "movie__title" %></h5>
           <hr>
           <div class="register">
 						<p class="m_4"><%= @review.content.html_safe %></p>
-				    <br><br>    	
+				    <br><br>
 				    <div class="clearfix"> </div>
 				  </div>
         </div>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-  
+
 </div>
 </div>
 </div>

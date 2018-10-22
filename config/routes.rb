@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :reviews
   resources :films
-  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks",
+    passwords: "users/passwords"}
   resources :users
   root "films#index"
   get 'user/:id', to: "user#show", as: 'user_path'
