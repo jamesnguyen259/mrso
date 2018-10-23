@@ -14,6 +14,8 @@ class ReviewsController < ApplicationController
   def show
   	@film = Film.find_by id: @review.film_id
   	@user = User.find_by id: @review.user_id
+    @comment = current_user.comments.new
+    @comments = @review.comments
   end
 
 	def like
