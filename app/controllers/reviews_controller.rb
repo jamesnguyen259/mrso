@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-	before_action :find_review, only: %i(show)
+	before_action :find_review, only: %i(show like unlike)
+
   def new
   end
 
@@ -14,6 +15,22 @@ class ReviewsController < ApplicationController
   	@film = Film.find_by id: @review.film_id
   	@user = User.find_by id: @review.user_id
   end
+
+	def like
+		@review.liked_by current_user
+		respond_to do |format|
+      format.html
+      format.js
+    end
+	end
+
+	def unlike
+	  @review.unliked_by current_user
+	  respond_to do |format|
+	    format.html
+	    format.js
+	  end
+ end
 
   private
   def review_params

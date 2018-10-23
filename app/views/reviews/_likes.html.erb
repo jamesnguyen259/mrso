@@ -1,0 +1,8 @@
+<div id="like_<%= @review.id %>">
+<% if current_user.liked? @review %>
+  <%= link_to "Unlike", unlike_review_path(@review.id), remote: true %>
+<% else %>
+  <%= link_to "Like", like_review_path(@review.id), remote: true %>
+<% end %>
+<%= @review.votes_for.size %>
+</div>
