@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       get "like"
       get "unlike"
     end
-    resources :votes, only: %i(create destroy)
   end
 
   resources :films
