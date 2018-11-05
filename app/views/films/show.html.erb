@@ -23,7 +23,7 @@
 
       <div class="single">
         <h1>Reviews</h1>
-        <ul class="single_list">
+        <!-- <ul class="single_list"> -->
           <% @reviews.each do |review| %>
           <div class="container-fluid">
             <div>
@@ -33,23 +33,22 @@
                   <div class="register">
                     <div class="text">
                       <%= review.content.html_safe %>
-        </div></p>
-        <%= link_to "Read_more", review %>
-      </div>
-                    <br><br>
-                    <div class="clearfix"> </div>
+                    </div></p>
+                    <%= link_to "Read_more", review %>
                   </div>
+                  <br><br>
+                  <div class="clearfix"> </div>
                 </div>
               </div>
             </div>
-            <br>
-            <% end %>
-
+          </div>
+          <br>
+          <% end %>
         </div>
-			    <li>
+			    <!-- <li>
 			      <div class="clearfix"></div>
-			    </li>
-			  </ul>
+			    </li> -->
+			  <!-- </ul> -->
       </div>
     </div>
 

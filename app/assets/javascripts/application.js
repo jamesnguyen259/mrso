@@ -18,3 +18,5 @@
 //= require tinymce
 //= require_tree .
 //= require cloudinary
+//= require chosen-jquery
+// require scaffold
