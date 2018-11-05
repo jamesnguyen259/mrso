@@ -8,7 +8,9 @@
                    	<div class="movie movie-test movie-test-dark movie-test-left">
                       <div class="movie__images">
                           <a class="movie-beta__link">
+                            <% if !film.picture_url.nil? %>
                             <%= image_tag film.picture_url, class: "img-responsive" %>
+                            <% end %>
                           </a>
                       </div>
 											<div class="movie__info">

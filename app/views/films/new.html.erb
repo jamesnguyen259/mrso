@@ -10,11 +10,22 @@
 				  <% end %>
 
 				  <%= field_set_tag nil, class: "form-group" do %>
-				  <!-- <%= f.text_field :description, class: "form-control", id: "example-email",
-				    placeholder: "description" %> -->
           <%= f.text_area :description, rows: 10, cols: 25, :class => "tinymce form-control", id: "example-email",
 				    placeholder: "description" %>
 				  <% end %>
+
+          <%= field_set_tag nil, class: "form-group" do %>
+          <%= f.collection_select :category_ids,
+            Category.all, :id, :name,
+                         { include_blank: true  },
+                         { multiple: true, class: "chosen-select" } %>
+          <% end %>
+
+          <%= field_set_tag nil, class: "form-group" do %>
+				  <%= f.date_field :release_day, class: "form-control", id: "",
+				    placeholder: "Release Day" %>
+				  <% end %>
+
 				  <div class="col-sm-4">
 				    <%= f.file_field :picture, class: "form-control" %>
 				  </div>
