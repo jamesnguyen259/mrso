@@ -1,8 +1,17 @@
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
 <div id="like_<%= @review.id %>">
 <% if current_user.liked? @review %>
-  <%= link_to "Unlike", unlike_review_path(@review.id), remote: true %>
+	<%= link_to unlike_review_path(@review.id), class: "btn btn-info btn-lg", remote: true do %>
+          <span class="glyphicon glyphicon-heart-empty"></span> UnLike
+          <%= @review.votes_for.size %>
+	<% end %>
+  
 <% else %>
-  <%= link_to "Like", like_review_path(@review.id), remote: true %>
+	<%= link_to like_review_path(@review.id), class: "btn btn-default btn-lg", remote: true do %>
+          <span class="glyphicon glyphicon-heart"></span> Like 
+          <%= @review.votes_for.size %>
+	<% end %>
 <% end %>
-<%= @review.votes_for.size %>
 </div>
