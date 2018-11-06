@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-	before_action :find_review, only: %i(show like unlike)
+	before_action :find_review, only: %i(show like unlike edit update)
 
   def new
   end
@@ -32,7 +32,18 @@ class ReviewsController < ApplicationController
 	    format.html
 	    format.js
 	  end
- end
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update_attributes(review_params)
+      redirect_to @review.film
+    else
+      render "edit"
+    end
+  end
 
   private
   def review_params

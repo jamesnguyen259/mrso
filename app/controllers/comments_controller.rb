@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :find_comment, only: %i(edit update)
   def new
   	@comment = current_user.comments.new
   end
@@ -19,8 +20,23 @@ class CommentsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @comment.update_attributes(comment_params)
+      redirect_to @comment.review
+    else
+      render "edit"
+    end
+  end
+
   private
   def comment_params
     params.require(:comment).permit Comment::ATTRIBUTES_PARAMS
+  end
+
+  def find_comment
+    @comment = Comment.find_by id: params[:id]
   end
 end

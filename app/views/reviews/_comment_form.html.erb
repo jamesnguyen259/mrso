@@ -25,6 +25,11 @@
             <div class="panel panel-default">
             <div class="panel-heading">
             <strong><%= cmt.email %></strong> <span class="text-muted">commented</span>
+            <% if user_signed_in? %>
+            <% if current_user.id == cmt.user_id %>
+            <%= link_to "edit", edit_comment_path(cmt), class: "pull-right" %>
+            <% end %>
+            <% end %>
             </div>
             <div class="panel-body">
             <%= cmt.content %>

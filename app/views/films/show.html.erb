@@ -38,6 +38,11 @@
             <div class="panel panel-default">
             <div class="panel-heading">
             <strong><%= review.email %></strong> <span class="text-muted">reviewed</span>
+            <% if user_signed_in? %>
+            <% if current_user.id == review.user_id %>
+            <%= link_to "edit", edit_review_path(review), class: "pull-right" %>
+            <% end %>
+            <% end %>
             </div>
             <div class="panel-body">
             <%= review.content.html_safe %>
