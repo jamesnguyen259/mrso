@@ -19,7 +19,9 @@ class FilmsController < ApplicationController
   end
 
 	def show
-		@review = current_user.reviews.new
+		if user_signed_in? 
+			@review = current_user.reviews.new
+		end
 		@reviews = @film.reviews
 	end
 
