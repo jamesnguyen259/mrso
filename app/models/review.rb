@@ -7,5 +7,6 @@ class Review < ApplicationRecord
 
   delegate :email, to: :user, allow_nil: true
   delegate :avatar, to: :user, allow_nil: true
+  delegate :id, to: :user, prefix: :user
 	acts_as_votable
 end
