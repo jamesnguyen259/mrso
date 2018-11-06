@@ -37,7 +37,8 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit Film::ATTRIBUTES_PARAMS,:release_day, category_ids:[]
+    params.require(:film).permit Film::ATTRIBUTES_PARAMS,
+		  :release_day, :duration, category_ids:[]
   end
 
 	def find_film

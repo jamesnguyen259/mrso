@@ -10,8 +10,9 @@
       </div>
 
       <div class="desc1 span_3_of_2">
-      	<p class="movie_option"><strong>Category: </strong><a href="#">Adventure</a>, <a href="#">Fantazy</a></p>
+      	<p class="movie_option"><strong>Category: </strong><%= @film.categories.pluck(:name).to_sentence %></p>
       	<p class="movie_option"><strong>Release date: </strong><%= @film.release_day %></p>
+        <p class="movie_option"><strong>Duration: </strong><%= @film.duration %></p>
       	<p class="movie_option"><strong>Director: </strong><%= @film.author %></p>
         <% if user_signed_in? %>
         <div class="down_btn"><a class="btn1" data-toggle="modal" data-target="#myModal"><span></span>Review</a></div>
