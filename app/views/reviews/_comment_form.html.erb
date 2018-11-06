@@ -13,22 +13,25 @@
     </div>
   <hr>
   <% @comments.each do |cmt| %>
-  <div class="container-fluid">
-    <div>
-      <div class="card text-center">
-        <div class="card-body" id="card">
-          <br>
-          <div class="register">
-            <div class="text">
-              <%= cmt.content %>
-            </div></p>
+  <div class="row">
+            <div class="col-md-1 col-md-offset-1">
+            <div class="thumbnail">
+            <!-- <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"> -->
+            <%= image_tag cmt.avatar_url, class: "img-responsive user-photo" %>
+            </div><!-- /thumbnail -->
+            </div><!-- /col-sm-1 -->
+
+            <div class="col-sm-8">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <strong><%= cmt.email %></strong> <span class="text-muted">commented</span>
+            </div>
+            <div class="panel-body">
+            <%= cmt.content %>
+            </div><!-- /panel-body -->
+            </div><!-- /panel panel-default -->
+            </div><!-- /col-sm-5 -->
           </div>
-            <br><br>
-            <div class="clearfix"> </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <br>
   <% end %>
 </div>

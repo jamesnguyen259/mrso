@@ -19,7 +19,7 @@
     <div class="header_top">
         <div class="col-sm-3 logo"><a href="index.html">
           <%= link_to image_tag("logo.png"), root_path %><%= %></a></div>
-        <div class="col-sm-6 nav">
+        <div class="col-sm-5 nav">
         <ul>
          <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a href="movie.html"> </a></span></li>
          <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a href="movie.html"> </a> </span></li>
@@ -29,12 +29,20 @@
          <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="movie.html"> </a></span></li>
        </ul>
       </div>
-      <div class="col-sm-3 header_left">
+      <div class="col-sm-4 header_left">
          <ul class="header_right_box">
-         <!-- <li><%=image_tag("p1.png") %></li> -->
          <% if user_signed_in?%>
-         <li><p><a href=""><%= link_to current_user.email, user_path(current_user) %></a></p></li>
-         <li class="last"><i class="edit"><%= link_to "", destroy_user_session_path, method: :delete, :class => "btn btn-default btn-outline btn-circle" %></i></li>
+       <div class="col-sm-5">
+         <div class="group">
+           <div style="background-image:url(<%= current_user.avatar_url %>)"></div>
+         </div>
+       </div>
+        <div class="btn-group show-on-hover">
+          <li><p><a href="" data-toggle="dropdown"><%= link_to current_user.email, user_path(current_user) %></a></p></li>
+          <ul class="dropdown-menu" role="menu">
+         <li ><%= link_to "Log out", destroy_user_session_path, method: :delete%></li>
+          </ul>
+        </div>
          <% else %>
            <li><p><a><%= link_to "Sign in",  new_user_session_path %></a></p></li>
          <% end %>

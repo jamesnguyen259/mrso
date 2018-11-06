@@ -8,7 +8,14 @@
                         <div class="card-body">
                             <% provide(:title, "Edit user") %>
                             <hr>
-                            <center><h3>Edit Profile</h3></center>
+                            <center>
+                                <h3>Edit Profile</h3>
+                                <div class="avatar">
+                                   <a>
+                                    <%= image_tag @user.avatar_url, class: "user" %>
+                                   </a>
+                                </div>
+                            </center>
                             <br>
                             <br>
                             <div class="row">
@@ -18,6 +25,11 @@
                                     <%= f.label :email %>
                                     <%= f.email_field :email, class: 'form-control' %>
                                     <br>
+                                    <div class="col-sm-4">
+                                        <%= f.file_field :avatar, class: "form-control" %>
+                                      </div>
+                                    <br>
+                                    <hr>
                                     <%= link_to "Change your password", edit_user_registration_path %>
                                     <br>
                                     <br>

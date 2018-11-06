@@ -5,11 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i(facebook)
 
+  ATTRIBUTES_PARAMS = [:email, :avatar].freeze
+
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
   acts_as_voter
+
+  mount_base64_uploader :avatar, PictureUploader
 
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

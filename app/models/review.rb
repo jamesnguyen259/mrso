@@ -3,6 +3,9 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :film
   has_many :comments
+  mount_base64_uploader :avatar, PictureUploader
 
+  delegate :email, to: :user, allow_nil: true
+  delegate :avatar, to: :user, allow_nil: true
 	acts_as_votable
 end
