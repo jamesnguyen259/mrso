@@ -26,6 +26,11 @@
 				    placeholder: "Release Day" %>
 				  <% end %>
 
+          <%= field_set_tag nil, class: "form-group" do %>
+				  <%= f.number_field :duration, class: "form-control", id: "",
+				    placeholder: "Duration" %>
+				  <% end %>
+
 				  <div class="col-sm-4">
 				    <%= f.file_field :picture, class: "form-control" %>
 				  </div>

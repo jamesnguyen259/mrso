@@ -15,12 +15,13 @@
                       </div>
 											<div class="movie__info">
 												<%= link_to film.name, film, class: "movie__title" %>
-                        <p class="movie__time">80 min</p>
-												<p class="movie__option"><a href="single.html">Contray</a> | <a href="single.html">Dolor sit</a> | <a href="single.html">Drama</a></p>
+                        <p class="movie__time">Duration: <%= film.duration %> </p>
+												<p class="movie__option">Genre:
+                          <%= film.categories.pluck(:name).to_sentence %>
+                        </p>
                         <ul class="list_6">
-								    			<li><i class="icon1"> </i><p>2,548</p></li>
-								    			<li><i class="icon3"> </i><p>546</p></li>
-								    			<!-- <li>Rating : &nbsp;&nbsp;<p><%=image_tag("rating1.png") %></p></li> -->
+								    			<!-- <li><i class="icon1"> </i><p>2,548</p></li> -->
+								    			<!-- <li><i class="icon3"> </i><p>546</p></li> -->
 								    			<div class="clearfix"> </div>
 								    		</ul>
                       </div>
