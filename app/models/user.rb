@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   acts_as_voter
+  acts_as_commontator
 
   mount_base64_uploader :avatar, PictureUploader
 
