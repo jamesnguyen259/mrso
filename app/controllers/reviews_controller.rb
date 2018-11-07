@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
   	@user = User.find_by id: @review.user_id
     @comment = current_user.comments.new
     @comments = @review.comments
+		commontator_thread_show(@review)
   end
 
 	def like

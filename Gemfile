@@ -8,6 +8,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass"
 gem "carrierwave"
 gem "carrierwave-base64"
+gem "commontator"
 gem "cloudinary"
 gem "chosen-rails"
 gem "coffee-rails", "~> 4.2"

@@ -9,4 +9,5 @@ class Review < ApplicationRecord
   delegate :avatar, to: :user, allow_nil: true
   delegate :id, to: :user, prefix: :user
 	acts_as_votable
+	acts_as_commontable
 end
