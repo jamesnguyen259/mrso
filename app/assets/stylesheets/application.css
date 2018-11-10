@@ -3,4 +3,9 @@
 *= require chosen
 *= require font-awesome
 *= require commontator/application
+*= require bootstrap
+*= require _button
+*= require _feature
+*= require responsive
+*= require carousel
 */

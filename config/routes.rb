@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :searchs
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   mount Commontator::Engine => "/commontator"
   resources :comments

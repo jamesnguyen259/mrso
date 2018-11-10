@@ -1,0 +1,29 @@
+<div id="reviews_display">
+	<% @reviews.each do |review| %>
+	<div class="main_blog_details">
+	<blockquote class="blockquote">
+	  <div class="quote"><p class="mb-0"><%= review.content.html_safe %> 
+	    <%= link_to "More", review, class: "genric-btn info-border circle small pull-right" %>
+	    <% if user_signed_in? %>
+	    <% if current_user.id == review.user_id %>
+	    <%= link_to "Edit", edit_review_path(review), class: "genric-btn primary-border circle small pull-right" %>
+	    <%= link_to "Delete", review_path(review), method: :delete, class: "genric-btn danger-border circle small pull-right", remote: true, data: { confirm: 'Are you certain you want to delete this?' } %>
+	    <% end %>
+	    <% end %>
+	    </p></div>
+	      <br>
+	  <div class="float-right">
+	        <div class="media">
+	            <h6 class="typo-list" style="margin-right: 10px "><%= review.email %></h6>
+	          <div class="d-flex">
+	            <%= image_tag review.avatar_url, class: "owner-review-avatar" %>
+	          </div>
+	        </div>
+	      </div>
+	      <br>
+
+	</blockquote>
+
+	    </div>
+	    <% end %>
+	  </div>

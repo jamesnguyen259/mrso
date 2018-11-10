@@ -11,8 +11,11 @@
 
 <div id="comment_<%= comment.id.to_s %>_div" class="comment">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
-    <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
+    <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator pull-left typo-list">
       <%= link.blank? ? name : link_to(name, link) %>
+      <span id="comment_<%= comment.id.to_s %>_avatar_span" class="comment_avatar">
+      <%= image_tag creator.avatar_url, class: "owner-review-avatar" %>
+    </span>
     </span>
     <span id="comment_<%= comment.id.to_s %>_actions_span" class="comment_actions">
       <%= render partial: 'commontator/comments/actions',
@@ -21,17 +24,14 @@
     </span>
   </div>
   <div id="comment_<%= comment.id.to_s %>_middle_div" class="comment_div">
-    <span id="comment_<%= comment.id.to_s %>_avatar_span" class="comment_avatar">
-      <%= avatar %>
-    </span>
     <span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
-      <%= render partial: 'commontator/comments/votes',
+      <h6 class="typo-list"><%= render partial: 'commontator/comments/votes',
                  locals: { comment: comment,
-                              user: user } %>
+                              user: user } %></h5>
     </span>
     <div id="comment_<%= comment.id.to_s %>_body_div" class="comment_body">
-      <%= render partial: 'commontator/comments/body',
-                 locals: { comment: comment } %>
+      <h6 class="typo-list"><%= render partial: 'commontator/comments/body',
+                 locals: { comment: comment } %></h6>
     </div>
   </div>
   <br><br><br>
