@@ -63,8 +63,8 @@ Commontator.configure do |config|
   #   view.commontator_gravatar_image_tag(user, 1, s: 60, d: 'mm')
   # }
   config.user_avatar_proc = ->(user, view) {
-    view.commontator_gravatar_image_tag(user, 1, s: 60, d: 'mm')
-    # view.image_tag(user.avatar_url, class: "img-responsive user-photo")
+    # view.commontator_gravatar_image_tag(user, 1, s: 60, d: 'mm')
+    view.image_tag(user.avatar_url, class: "img-responsive user-photo")
   }
 
   # user_email_proc

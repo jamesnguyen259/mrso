@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-	before_action :find_review, only: %i(show like unlike edit update)
+	before_action :find_review, only: %i(show like unlike edit update destroy)
 
   def new
   end
@@ -43,6 +43,16 @@ class ReviewsController < ApplicationController
       redirect_to @review.film
     else
       render "edit"
+    end
+  end
+
+  def destroy
+    if @review.destroy
+      @reviews = @review.film.reviews
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

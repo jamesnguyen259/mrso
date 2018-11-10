@@ -22,7 +22,7 @@
     </div>
 
     <% if @new_comment.nil? %>
-      <div id="thread_<%= thread.id %>_new_comment_link_div" class="thread_new_comment_link">
+      <div id="thread_<%= thread.id %>_new_comment_link_div" class="genric-btn success circle">
         <%= link_to t('commontator.comment.actions.new'),
             commontator.new_thread_comment_path(thread, per_page: per_page),
             remote: true %>

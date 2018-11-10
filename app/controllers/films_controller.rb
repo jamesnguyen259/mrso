@@ -3,6 +3,7 @@ class FilmsController < ApplicationController
 
 	def index
 		@films = Film.all
+		@films_new = Film.last(4)
 	end
 
   def new
