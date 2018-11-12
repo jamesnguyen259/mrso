@@ -16,7 +16,7 @@
 //= require jquery3
 //= require bootstrap
 //= require tinymce
-//= require_tree .
 //= require cloudinary
 //= require chosen-jquery
 // require scaffold
+//= require_tree  

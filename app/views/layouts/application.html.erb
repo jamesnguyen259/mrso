@@ -5,17 +5,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- <link rel="icon" href="img/favicon.png" type="image/png"> -->
-        <title>Fantom Blog</title>
+        <title>MRSO</title>
         <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
         <!-- Bootstrap CSS -->
-        
+
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
     <body>
-        
+
         <!--================Header Menu Area =================-->
         <header class="">
       <div class="main_menu">
@@ -31,22 +31,26 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
               <ul class="nav navbar-nav menu_nav">
-                <li class="nav-item active"><%= link_to "Home", root_path, class: "nav-link" %></li> 
-                <li class="nav-item"><a class="nav-link" href="category.html">Category</a></li>
-                <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
-                <li class="nav-item submenu dropdown">
+                <li class="nav-item active"><%= link_to "Home", root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Review", reviews_path, class: "nav-link" %></li>
+                <!-- <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
                     <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                   </ul>
-                </li> 
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </li> -->
               </ul>
               <ul class="nav navbar-nav navbar-right ml-auto">
-                <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li>
+                <!-- <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li> -->
+                <% if user_signed_in? %>
+                <!-- <li class="nav-item"><%= link_to current_user.email, current_user, class: "nav-link" %></li> -->
+                <li class="nav-item"><%= link_to "Signout", destroy_user_session_path, class: "nav-link" %></li>
+                <% else %>
+                <li class="nav-item"><%= link_to "Signin", new_user_session_path, class: "nav-link" %></li>
+                <% end %>
               </ul>
-            </div> 
+            </div>
           </div>
         </nav>
       </div>
@@ -65,13 +69,13 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-footer-widget">
                             <h6 class="footer_title">Newsletter</h6>
-                            <p>Stay updated with our latest trends</p>    
+                            <p>Stay updated with our latest trends</p>
                             <div id="mc_embed_signup">
                                 <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
                                     <div class="input-group d-flex flex-row">
                                         <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>    
-                                    </div>                  
+                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>
+                                    </div>
                                     <div class="mt-10 info"></div>
                                 </form>
                             </div>
@@ -83,7 +87,7 @@
                             <ul class="list instafeed d-flex flex-wrap">
                             </ul>
                         </div>
-                    </div>  
+                    </div>
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="single-footer-widget f_social_wd">
                             <h6 class="footer_title">Follow Us</h6>
@@ -95,10 +99,10 @@
                 <a href="#"><i class="fa fa-behance"></i></a>
                             </div>
                         </div>
-                    </div>            
+                    </div>
                 </div>
                 <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                 
+
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>

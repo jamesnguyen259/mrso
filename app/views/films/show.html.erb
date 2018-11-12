@@ -13,7 +13,7 @@
             </div>
         </section>
         <!--================End Home Banner Area =================-->
-        
+
         <!--================Blog Area =================-->
         <section class="blog_area p_120 single-post-area">
             <div class="container">
@@ -32,6 +32,13 @@
               <blockquote class="blockquote">
                 <p class="mb-0">MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.</p>
               </blockquote>
+
+              <div class="">
+              	<p class="movie_option"><strong>Category: </strong><%= @film.categories.pluck(:name).to_sentence %></p>
+              	<p class="movie_option"><strong>Release date: </strong><%= @film.release_day %></p>
+                <p class="movie_option"><strong>Duration: </strong><%= @film.duration %></p>
+              	<p class="movie_option"><strong>Director: </strong><%= @film.author %></p>
+              </div>
               <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
               <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
                   <div class="news_d_footer">
@@ -66,8 +73,8 @@
                         <div class="comments-area">
                             <h4>05 Comments</h4>
                           </div>
-                          <%= render "reviews/reviews" %>                       
-                        <div class="comment-form">
+                          <%= render "reviews/reviews" %>
+                        <!-- <div class="comment-form">
                             <h4>Leave a Reply</h4>
                             <form>
                                 <div class="form-group form-inline">
@@ -76,7 +83,7 @@
                                   </div>
                                   <div class="form-group col-lg-6 col-md-6 email">
                                     <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
-                                  </div>                    
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
@@ -84,9 +91,9 @@
                                 <div class="form-group">
                                     <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
                                 </div>
-                                <a href="#" class="primary-btn submit_btn">Post Comment</a> 
+                                <a href="#" class="primary-btn submit_btn">Post Comment</a>
                             </form>
-                        </div>
+                        </div> -->
               </div>
                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">
@@ -183,12 +190,12 @@
                                             <p>Adventure</p>
                                             <p>44</p>
                                         </a>
-                                    </li>                             
+                                    </li>
                                 </ul>
                                 <div class="br"></div>
                             </aside>
+                            <h4 class="widget_title">Tag Clouds</h4>
                             <aside class="single-sidebar-widget tag_cloud_widget">
-                                <h4 class="widget_title">Tag Clouds</h4>
                                 <ul class="list">
                                     <li><a href="#">Technology</a></li>
                                     <li><a href="#">Fashion</a></li>
@@ -210,124 +217,4 @@
             </div>
         </section>
 
-
-
-<div class="content">
-  <div class="movie_top">
-    <div class="col-md-10 col-md-offset-1 movie_box">
-      <div class="grid images_3_of_2">
-        <div class="movie_image">
-          <a href="single.html" class="movie-beta__link">
-            <%= image_tag @film.picture_url, class: "img-responsive" %>
-          </a>
-        </div>
-      </div>
-
-      <div class="desc1 span_3_of_2">
-      	<p class="movie_option"><strong>Category: </strong><%= @film.categories.pluck(:name).to_sentence %></p>
-      	<p class="movie_option"><strong>Release date: </strong><%= @film.release_day %></p>
-        <p class="movie_option"><strong>Duration: </strong><%= @film.duration %></p>
-      	<p class="movie_option"><strong>Director: </strong><%= @film.author %></p>
-        <% if user_signed_in? %>
-        <div class="down_btn"><a class="btn1" data-toggle="modal" data-target="#myModal"><span></span>Review</a></div>
-        <% end %>
-      </div>
-
-      <div class="clearfix"></div>
-      <p class="m_4"><%= @film.description.html_safe %></p>
-
-      <div class="single">
-        <h1>Reviews</h1>
-        <!-- <ul class="single_list"> -->
-          <% @reviews.each do |review| %>
-          <div class="row">
-            <div class="col-sm-1">
-            <div class="thumbnail">
-            <!-- <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"> -->
-            <%= image_tag review.avatar_url, class: "img-responsive user-photo" %>
-            </div><!-- /thumbnail -->
-            </div><!-- /col-sm-1 -->
-
-            <div class="col-sm-10">
-            <div class="panel panel-default">
-            <div class="panel-heading">
-            <strong><%= review.email %></strong> <span class="text-muted">reviewed</span>
-            <% if user_signed_in? %>
-            <% if current_user.id == review.user_id %>
-            <%= link_to "edit", edit_review_path(review), class: "pull-right" %>
-            <% end %>
-            <% end %>
-            </div>
-            <div class="panel-body">
-            <%= review.content.html_safe %>
-            <%= link_to "Read more", review, class: "text-muted" %>
-            </div><!-- /panel-body -->
-            </div><!-- /panel panel-default -->
-            </div><!-- /col-sm-5 -->
-          </div>
-          <!-- <div class="container-fluid">
-            <div>
-              <div class="card text-center">
-                <div class="card-body" id="card">
-                  <br>
-                  <div class="register">
-                    <div class="text">
-                      <%= review.content.html_safe %>
-                    </div></p>
-                    <%= link_to "Read_more", review %>
-                  </div>
-                  <br><br>
-                  <div class="clearfix"> </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br> -->
-          <% end %>
-        </div>
-			    <!-- <li>
-			      <div class="clearfix"></div>
-			    </li> -->
-			  <!-- </ul> -->
-      </div>
-    </div>
-
-
-    
-    <div class="clearfix"></div>
-  </div>
-</div>
-</div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">New review for film: <%= @film.name %></h4>
-                  </div>
-                        <div class="">
-                          <div class="content">
-                            <% if user_signed_in? %>
-                            <div class="register-but">
-                              <%= form_for @review do |f| %>
-                              <%= field_set_tag nil, class: "form-group" do %>
-
-                              <%= f.text_area :content, rows: 10, cols: 25, :class => "tinymce" %>
-                              <%= f.hidden_field :film_id, value: @film.id %>
-                              <% end %>
-                              <div class="actions">
-                                <%= f.submit "Done" %>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              </div>
-                            <% end %>
-                          </div>
-                          <% end %>
-                        </div>
-                        </div>
-                        <div class="clearfix"> </div>
 <%= tinymce %>
-
-                </div>
-              </div>
-            </div>
-<%= javascript_include_tag "modal_js" %>

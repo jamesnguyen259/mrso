@@ -2,6 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
+
             <div class="blog_left_sidebar">
             	<% @films.each do |film| %>
                 <article class="blog_style1">
@@ -16,7 +17,7 @@
     						<div class="date">
     							<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Posted <%= time_ago_in_words(film.created_at) %> ago</a>
     							<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-    						</div>	
+    						</div>
     					</div>
                 	</div>
                 	<hr>
@@ -24,7 +25,8 @@
                 <% end %>
                 <nav class="blog-pagination justify-content-center d-flex">
                 <ul class="pagination">
-                    <li class="page-item">
+                  <%= paginate @films, theme: "bootstrap4" %>
+                    <!-- <li class="page-item">
                         <a href="#" class="page-link" aria-label="Previous">
                             <span aria-hidden="true">
                                 <span class="lnr lnr-chevron-left"></span>
@@ -42,11 +44,12 @@
                                 <span class="lnr lnr-chevron-right"></span>
                             </span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
             </div>
         </div>
+
         <div class="col-lg-4">
             <div class="blog_right_sidebar">
                 <%= render "layouts/search" %>
@@ -80,54 +83,20 @@
                     <div class="br"></div>
                 </aside>
                 <aside class="single_sidebar_widget post_category_widget">
-                    <h4 class="widget_title">Post Catgories</h4>
+                    <h4 class="widget_title">Film Catgories</h4>
                     <ul class="list cat-list">
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Technology</p>
-                                <p>37</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Lifestyle</p>
-                                <p>24</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Fashion</p>
-                                <p>59</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Art</p>
-                                <p>29</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Food</p>
-                                <p>15</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Architecture</p>
-                                <p>09</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex justify-content-between">
-                                <p>Adventure</p>
-                                <p>44</p>
-                            </a>
-                        </li>															
+                      <% @categories.each do |c| %>
+                      <li>
+                          <a href="#" class="d-flex justify-content-between">
+                              <p><%= c.name %></p>
+                              <!-- <p>37</p> -->
+                          </a>
+                      </li>
+                      <% end %>
                     </ul>
                     <div class="br"></div>
                 </aside>
-            
+
             </div>
         </div>
     </div>
