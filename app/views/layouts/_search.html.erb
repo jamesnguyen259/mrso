@@ -1,9 +1,13 @@
 <aside class="single_sidebar_widget search_widget">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Posts">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-        </span>
-    </div><!-- /input-group -->
+        <%= search_form_for @q do |f| %>
+          <div class="form-control">
+          <%= f.search_field :name_cont, class: "form-control-x" %>
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+          </span>
+          </div>
+        <% end %>
+    </div>
     <div class="br"></div>
 </aside>

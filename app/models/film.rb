@@ -7,4 +7,6 @@ class Film < ApplicationRecord
   has_many :kinds, dependent: :destroy
   has_many :categories, through: :kinds
   accepts_nested_attributes_for :kinds, allow_destroy: true
+
+  paginates_per 3
 end

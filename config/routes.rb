@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  resources :searchs
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   mount Commontator::Engine => "/commontator"
+
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks",
+    passwords: "users/passwords"}
+
+  resources :users
+
+  resources :films
+  resources :searchs
   resources :comments
   resources :reviews do
     member do
@@ -10,11 +18,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :films
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    passwords: "users/passwords"}
-  resources :users
   root "films#index"
-  get 'user/:id', to: "user#show", as: 'user_path'
 end

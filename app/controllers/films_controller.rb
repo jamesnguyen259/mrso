@@ -2,8 +2,10 @@ class FilmsController < ApplicationController
 	before_action :find_film, only: %i(show edit update)
 
 	def index
-		@films = Film.all
+		@q = Film.ransack params[:q]
+		@films = @q.result.includes(:reviews).page(params[:page])
 		@films_new = Film.last(4)
+		@categories = Category.all
 	end
 
   def new
@@ -20,7 +22,9 @@ class FilmsController < ApplicationController
   end
 
 	def show
-		if user_signed_in? 
+		@q = Film.ransack params[:q]
+		@films = @q.result.includes(:reviews).page(params[:page])
+		if user_signed_in?
 			@review = current_user.reviews.new
 		end
 		@reviews = @film.reviews

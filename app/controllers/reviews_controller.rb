@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
 	before_action :find_review, only: %i(show like unlike edit update destroy)
 
+	def index
+		@reviews = Review.all
+	end
+
   def new
   end
 
@@ -12,6 +16,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+		@q = Film.ransack params[:q]
+		@films = @q.result.includes(:reviews).page(params[:page])
   	@film = Film.find_by id: @review.film_id
   	@user = User.find_by id: @review.user_id
     @comment = current_user.comments.new
