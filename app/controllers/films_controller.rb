@@ -56,6 +56,6 @@ class FilmsController < ApplicationController
 	end
 
 	def category_all
-		@categories_name = Category.distinct.pluck(:name)
+		@categories = Category.distinct.uniq
 	end
 end
