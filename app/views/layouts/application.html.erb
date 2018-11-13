@@ -17,7 +17,7 @@
     <body>
 
         <!--================Header Menu Area =================-->
-        <header class="">
+<header class="">
       <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
@@ -44,18 +44,17 @@
               <ul class="nav navbar-nav navbar-right ml-auto">
                 <!-- <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li> -->
                 <% if user_signed_in? %>
-                <!-- <li class="nav-item"><%= link_to current_user.email, current_user, class: "nav-link" %></li> -->
-                <li class="nav-item"><%= link_to "Signout", destroy_user_session_path, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to current_user.email, current_user, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Signout", destroy_user_session_path, class: "nav-link" %></li>
                 <% else %>
-                <li class="nav-item"><%= link_to "Signin", new_user_session_path, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Signin", new_user_session_path, class: "nav-link" %></li>
                 <% end %>
               </ul>
             </div>
           </div>
         </nav>
       </div>
-
-        </header>
+</header>
             <%= yield %>
         <footer class="footer-area">
             <div class="container">
@@ -63,7 +62,7 @@
                     <div class="col-lg-3  col-md-6 col-sm-6">
                         <div class="single-footer-widget">
                             <h6 class="footer_title">About Us</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
+                            <p>We are Sanban Team from Hedspi K59, Hanoi University of Science and Technology.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -94,9 +93,9 @@
                             <p>Let us be social</p>
                             <div class="f_social">
                               <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-behance"></i></a>
+                              <a href="#"><i class="fa fa-twitter"></i></a>
+                              <a href="#"><i class="fa fa-dribbble"></i></a>
+                              <a href="#"><i class="fa fa-behance"></i></a>
                             </div>
                         </div>
                     </div>

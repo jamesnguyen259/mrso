@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 	before_action :find_review, only: %i(show like unlike edit update destroy)
+	before_action :category_all, only: %i(index show)
 
 	def index
 		@reviews = Review.all
@@ -20,9 +21,11 @@ class ReviewsController < ApplicationController
 		@films = @q.result.includes(:reviews).page(params[:page])
   	@film = Film.find_by id: @review.film_id
   	@user = User.find_by id: @review.user_id
-    @comment = current_user.comments.new
-    @comments = @review.comments
-		commontator_thread_show(@review)
+		if user_signed_in?
+    	@comment = current_user.comments.new
+    	@comments = @review.comments
+		  commontator_thread_show(@review)
+		end
   end
 
 	def like
@@ -70,4 +73,8 @@ class ReviewsController < ApplicationController
   def find_review
   	@review = Review.find_by id: params[:id]
   end
+
+	def category_all
+		@categories_name = Category.distinct.pluck(:name)
+	end
 end

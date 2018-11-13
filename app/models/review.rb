@@ -10,4 +10,5 @@ class Review < ApplicationRecord
   delegate :id, to: :user, prefix: :user
 	acts_as_votable
 	acts_as_commontable
+	ratyrate_rateable "speed"
 end
