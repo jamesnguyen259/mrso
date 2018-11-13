@@ -1,11 +1,11 @@
 class FilmsController < ApplicationController
 	before_action :find_film, only: %i(show edit update)
+	before_action :category_all, only: %i(index show)
 
 	def index
 		@q = Film.ransack params[:q]
 		@films = @q.result.includes(:reviews).page(params[:page])
 		@films_new = Film.last(4)
-		@categories = Category.all
 	end
 
   def new
@@ -53,5 +53,9 @@ class FilmsController < ApplicationController
 		return if @film
 		flash[:warning] = "Can't find film!"
 		redirect_to root_url
+	end
+
+	def category_all
+		@categories_name = Category.distinct.pluck(:name)
 	end
 end

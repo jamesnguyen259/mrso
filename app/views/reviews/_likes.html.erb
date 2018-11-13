@@ -1,18 +1,23 @@
 <div id="like_<%= @review.id %>">
+<% if user_signed_in? %>
 <% if current_user.liked? @review %>
 	<%= link_to unlike_review_path(@review.id), remote: true do %>
            <i class="lnr lnr lnr-heart-pulse"></i>
            <% if (@review.votes_for.size - 1) != 0 %>
-          	You and <%= @review.votes_for.size - 1 %> Liked 
+          	You and <%= @review.votes_for.size - 1 %> people liked this review
            <% else %>
-            You Liked
+            You liked this review
            <% end %>
 	<% end %>
-  
+
 <% else %>
 	<%= link_to like_review_path(@review.id), class: "lnr lnr lnr-heart", remote: true do %>
           <i class="lnr lnr lnr-heart"></i>
-          <%= @review.votes_for.size %> Liked
+          <%= @review.votes_for.size %> people liked this review
 	<% end %>
+<% end %>
+<% else %>
+	<i class="lnr lnr lnr-heart"></i>
+	<%= @review.votes_for.size %> people liked this review
 <% end %>
 </div>

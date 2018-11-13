@@ -13,7 +13,8 @@ class User < ApplicationRecord
 
   acts_as_voter
   acts_as_commontator
-
+  ratyrate_rater
+  
   mount_base64_uploader :avatar, PictureUploader
 
   def self.from_omniauth auth

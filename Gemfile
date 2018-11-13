@@ -23,12 +23,14 @@ gem "pg"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
 gem "rails_admin"
+gem "ratyrate"
 gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "tinymce-rails"
 gem "uglifier", ">= 1.3.0"
 gem "ransack"
+gem "truncate_html"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
