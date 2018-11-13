@@ -6,6 +6,7 @@ class FilmsController < ApplicationController
 		@q = Film.ransack params[:q]
 		@films = @q.result.includes(:reviews).page(params[:page])
 		@films_new = Film.last(4)
+		@reviews_last = Review.last(4)
 	end
 
   def new

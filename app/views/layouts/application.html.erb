@@ -44,7 +44,7 @@
               <ul class="nav navbar-nav navbar-right ml-auto">
                 <!-- <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li> -->
                 <% if user_signed_in? %>
-                  <li class="nav-item"><%= link_to current_user.email, current_user, class: "nav-link" %></li>
+                  <li class="nav-item"><%=link_to current_user.email, current_user, class: "nav-link" %></li>
                   <li class="nav-item"><%= link_to "Signout", destroy_user_session_path, class: "nav-link" %></li>
                 <% else %>
                   <li class="nav-item"><%= link_to "Signin", new_user_session_path, class: "nav-link" %></li>

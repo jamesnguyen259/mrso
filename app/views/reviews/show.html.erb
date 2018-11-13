@@ -1,39 +1,31 @@
-<section class="blog_area p_120 single-post-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-        <div class="main_blog_details">
-          <%= image_tag @film.picture_url, class: "img-fluid"%>
-          <a><h4>Review for Film: <%= @film.name %><br/></h4></a>
-          <h6 class="typo-list">Posted by <%= @user.email %></h6>
-          <div class="user_details">
-            <div class="float-left">
-              <a href="#">Lifestyle</a>
-              <a href="#">Gadget</a>
-            </div>
-          </div>
-          <%= @review.content.html_safe %>
-          <p>People rating number: <%= @review.rates("speed").count %></p>
+        <section class="blog_area p_120 single-post-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                <div class="main_blog_details">
+                  <%= image_tag @film.picture_url, class: "img-fluid"%>
+                  <a><h4>Review for Film: <%=link_to @film.name, @film, class: "h1" %><br/></h4></a>
+                  <h6 class="typo-list">Posted by <%= @user.email %></h6>
+                  <div class="user_details">
+                    <div class="float-left">
+                      <a href="#">Lifestyle</a>
+                      <a href="#">Gadget</a>
+                    </div>
+                  </div>
+                  <%= @review.content.html_safe %>
+                  <p>People rating number: <%= @review.rates("speed").count %></p>
           <p>Score: <%= @review.average("speed").present? ? @review.average("speed").avg : 0 %></p>
           <% if user_signed_in? %>
           <%= rating_for @review, "speed",
             disable_after_rate: true %>
           <% end %>
-          <div class="news_d_footer">
-            <%= render partial: "reviews/likes" %>
-            <!-- <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a>
-            <div class="news_socail ml-auto">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-youtube-play"></i></a>
-              <a href="#"><i class="fa fa-pinterest"></i></a>
-              <a href="#"><i class="fa fa-rss"></i></a>
-            </div> -->
-          </div>
-        </div>
-        <br><br>
-                <div class="comment-form">
-                  <%= commontator_thread(@review) %>
+                  <div class="news_d_footer">
+                    <%= render partial: "reviews/likes" %>
+                    <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a>
+                    <div class="news_socail ml-auto">
+                  <%= social_share_button_tag("Review for film: " + @film.name + " by " + @user.email + " in MRSO", :image => @film.picture_url) %>
+                </div>
+                  </div>
                 </div>
       </div>
             <div class="col-lg-4">
