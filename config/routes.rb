@@ -18,6 +18,6 @@ Rails.application.routes.draw do
       get "unlike"
     end
   end
-
+  resources :categories, only: %i(show)
   root "films#index"
 end

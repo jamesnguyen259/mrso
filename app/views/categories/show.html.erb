@@ -1,0 +1,55 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="blog_left_sidebar">
+            	<% @films.each do |film| %>
+                <article class="blog_style1">
+                	<div class="blog_img">
+                		<%= image_tag film.picture_url, class: "img-fluid" %>
+                	</div>
+                	<div class="blog_text">
+          					<div class="blog_text_inner">
+          						<a class="cat" href="#">Gadgets</a>
+          						<a><h4><%= link_to film.name, film, class: "mb-30 title_color" %></h4></a>
+          						<p><%= film.description.html_safe %></p>
+          						<div class="date">
+          							<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Posted <%= time_ago_in_words(film.created_at) %> ago</a>
+          							<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+          						</div>
+          					</div>
+                	</div>
+                	<hr>
+                </article>
+                <% end %>
+                <nav class="blog-pagination justify-content-center d-flex">
+                <ul class="pagination">
+                  <%= paginate @films, theme: "bootstrap4" %>
+                </ul>
+            </nav>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="blog_right_sidebar">
+                <% if user_signed_in? %>
+                <aside class="single_sidebar_widget author_widget">
+                	  <%= image_tag current_user.avatar_url, class: " rounded-circle" %>
+                    <h4><%= current_user.email %></h4>
+                    <p>Senior blog writer</p>
+                    <br>
+                    <%= link_to "Edit", edit_user_path(current_user), class: "cat"%>
+                    <div class="social_icon">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                    </div>
+                    <div class="br"></div>
+                </aside>
+                <% end %>
+                <%= render "layouts/category" %>
+            </div>
+        </div>
+    </div>
+</div>
