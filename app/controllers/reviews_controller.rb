@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 	before_action :category_all, only: %i(index show)
 
 	def index
-		@reviews = Review.all
+		@reviews = Review.all.page(params[:page])
 	end
 
   def new
