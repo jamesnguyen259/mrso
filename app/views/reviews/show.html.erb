@@ -21,11 +21,14 @@
           <% end %>
                   <div class="news_d_footer">
                     <%= render partial: "reviews/likes" %>
-                    <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a>
+                    <!-- <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a> -->
                     <div class="news_socail ml-auto">
                   <%= social_share_button_tag("Review for film: " + @film.name + " by " + @user.email + " in MRSO", :image => @film.picture_url) %>
                 </div>
                   </div>
+                  <div class="comment-form">
+                          <%= commontator_thread(@review) %>
+                </div>
                 </div>
       </div>
             <div class="col-lg-4">
