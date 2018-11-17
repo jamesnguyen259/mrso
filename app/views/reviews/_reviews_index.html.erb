@@ -5,8 +5,10 @@
 	  <div class="quote">
 			<!-- <p class="mb-0"> -->
 				<div class="">
-				<% if review.content.length > 200 %>
-				  <%= truncate_html(review.content, length: 200, word_boundary: false).html_safe %>
+				<h6 class="typo-list">Review for films:</h6>
+				<h3 class="typo-list"><%= review.name %></h3>	
+				<% if review.content.length > 800 %>
+				  <%= truncate_html(review.content, length: 800, word_boundary: false).html_safe %>
 				<% else %>
 				  <%= review.content.html_safe %>
 				<% end %>
@@ -34,4 +36,9 @@
 	</blockquote>
   </div>
 	<% end %>
+	<nav class="blog-pagination justify-content-center d-flex">
+    <ul class="pagination">
+      <%= paginate @reviews, theme: "bootstrap4" %>
+    </ul>
+  </nav>
 </div>

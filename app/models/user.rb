@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :follows, dependent: :destroy
 
   acts_as_voter
   acts_as_commontator

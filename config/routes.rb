@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :films
+  resources :follows
   resources :searchs
   resources :comments
   resources :reviews do

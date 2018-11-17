@@ -3941,6 +3941,7 @@ h6 {
 .owner-review-avatar {
  max-height: 40px;
  max-weight: 40px;
+ border-radius: 50%;
 }
 
 .user-avatar-size {
@@ -3973,4 +3974,8 @@ h6 {
     background-color:white;
     opacity: 0.8;
     bottom: -0.3em
+}
+
+.new_comment_color {
+  color: #fff;
 }

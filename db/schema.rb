@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_034832) do
+ActiveRecord::Schema.define(version: 2018_11_18_022205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(version: 2018_11_13_034832) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "kinds", force: :cascade do |t|
     t.bigint "film_id"
     t.bigint "category_id"
@@ -150,6 +157,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_034832) do
     t.bigint "user_id"
     t.bigint "film_id"
     t.string "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["film_id"], name: "index_reviews_on_film_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

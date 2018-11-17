@@ -1,0 +1,21 @@
+<div id="follow_form">
+  <% if user_signed_in? && current_user.id != @user.id %>
+  <% if @conection == false %>
+	  <%= form_for :follow, url: follows_path, remote: true do |f| %>
+	  <%= f.hidden_field :follow_id, value: @user.id %>
+	  <div>
+	  	<br>
+	    <%= f.submit "Follow", class: "primary-btn submit_btn small"%>
+	  </div>
+		<% end %>
+    <% else %>
+    <%= form_for :follow, url: follow_path(@conection.id),  method: :delete, remote: true do |f| %>
+    <%= f.hidden_field :id, value: @conection.id %>
+    <div>
+    	<br>
+      <%= f.submit "Unfollow", class: "primary-btn submit_btn small"%>
+    </div>
+    <% end %>
+    <% end %>
+  <% end %>
+</div>
