@@ -1,4 +1,4 @@
 10.times do
-  category = Faker::Book.genre
+  category = Faker::Book.unique.genre
   Category.create!(name: category)
 end
