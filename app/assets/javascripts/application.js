@@ -22,6 +22,6 @@
 //= require tinymce
 //= require social-share-button
 //= require cloudinary
-// require chosen-jquery
+//= require chosen-jquery
 // require scaffold
 //= require_tree
