@@ -13,11 +13,10 @@
                     </div>
                   </div>
                   <%= @review.content.html_safe %>
-                  <p>People rating number: <%= @review.rates("speed").count %></p>
-          <p>Score: <%= @review.average("speed").present? ? @review.average("speed").avg.round(1) : 0 %></p>
+          <%= render "rater/rater_form" %>
           <% if user_signed_in? %>
           <%= rating_for @review, "speed",
-            disable_after_rate: true %>
+            disable_after_rate: false %>
           <% end %>
                   <div class="news_d_footer">
                     <%= render partial: "reviews/likes" %>
@@ -39,6 +38,7 @@
                         <%= image_tag @user.avatar_url, class: " rounded-circle" %>
                         <h4><%= @user.email %></h4>
                         <p>Senior blog writer</p>
+                        <%= render "follows/follow" %>
                         <br>
                         <!-- <div class="social_icon">
                             <a href="#"><i class="fa fa-facebook"></i></a>
