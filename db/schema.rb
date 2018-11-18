@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2018_11_18_022205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
+    t.index ["rateable_type"], name: "index_average_caches_on_rateable_type"
+    t.index ["rater_id", "rateable_id"], name: "index_average_caches_on_rater_id_and_rateable_id"
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
   end
 
