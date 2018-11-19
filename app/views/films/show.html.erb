@@ -42,19 +42,11 @@
               <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
               <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
                   <div class="news_d_footer">
-                    <!-- <a href="#"><i class="lnr lnr lnr-heart"></i>Lily and 4 people like this</a> -->
-                    <!-- <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a>
-                    <div class="news_socail ml-auto">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-youtube-play"></i></a>
-                      <a href="#"><i class="fa fa-pinterest"></i></a>
-                      <a href="#"><i class="fa fa-rss"></i></a>
-                    </div> -->
-                  </div>
+                                    <%= social_share_button_tag("Film: " + @film.name + " in MRSO", :image => @film.picture_url) %>
+
                 </div>
-                <br><br>
-                <h2 class="typo-list">New Review</h2>
+                  </div>
+                  <br><br>
                 <br>
                 <% if user_signed_in? %>
                   <div class="register-but">
@@ -75,6 +67,8 @@
                             <h4>05 Comments</h4>
                           </div> -->
                           <%= render "reviews/reviews" %>
+                </div>
+
                         <!-- <div class="comment-form">
                             <h4>Leave a Reply</h4>
                             <form>
@@ -95,7 +89,6 @@
                                 <a href="#" class="primary-btn submit_btn">Post Comment</a>
                             </form>
                         </div> -->
-              </div>
                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">
                             <%= render "layouts/search" %>
@@ -106,12 +99,12 @@
                                   <p>Senior blog writer</p>
                                   <br>
                                   <%= link_to "Edit", edit_user_path(current_user), class: "cat"%>
-                                  <div class="social_icon">
+                                  <!-- <div class="social_icon">
                                       <a href="#"><i class="fa fa-facebook"></i></a>
                                       <a href="#"><i class="fa fa-twitter"></i></a>
                                       <a href="#"><i class="fa fa-github"></i></a>
                                       <a href="#"><i class="fa fa-behance"></i></a>
-                                  </div>
+                                  </div> -->
                                   <div class="br"></div>
                               </aside>
                               <% end %>

@@ -3941,6 +3941,7 @@ h6 {
 .owner-review-avatar {
  max-height: 40px;
  max-weight: 40px;
+ border-radius: 50%;
 }
 
 .user-avatar-size {
@@ -3973,4 +3974,68 @@ h6 {
     background-color:white;
     opacity: 0.8;
     bottom: -0.3em
+}
+
+.new_comment_color {
+  color: #fff;
+}
+
+/* for film new */
+
+.film-content{
+  background:#edeff0;
+  padding:2em;
+}
+
+/*--register--*/
+.register-top-grid h3, .register-bottom-grid h3 {
+  color:#000;
+  font-size:1.5em;
+  padding-bottom:20px;
+  margin: 0;
+
+}
+.register-top-grid div, .register-bottom-grid div {
+  width: 48%;
+  float: left;
+  margin: 10px 0;
+}
+.register-top-grid span, .register-bottom-grid span {
+  color:#999;
+
+  display: block;
+
+  font-size:1em;
+}
+.register-top-grid input[type="text"], .register-bottom-grid input[type="text"] {
+  border: 1px solid #EEE;
+  outline-color:#FF5B36;
+  width: 96%;
+  font-size: 1em;
+  padding: 0.5em;
+  -webkit-appearance: none;
+}
+
+.register-but{
+
+}
+.register-but form input[type="submit"] {
+  background: #df1f26;
+color: #FFF;
+font-size: 1em;
+padding: 7px 20px;
+transition: 0.5s all;
+-webkit-transition: 0.5s all;
+-moz-transition: 0.5s all;
+-o-transition: 0.5s all;
+display: inline-block;
+text-transform: uppercase;
+border: none;
+outline: none;
+}
+.register-but input[type="submit"]:hover {
+  background:#3f444e;
+}
+div.register-bottom-grid {
+  margin-top:3em;
 }

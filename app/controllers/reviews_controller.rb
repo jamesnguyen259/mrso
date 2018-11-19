@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 	before_action :category_all, only: %i(index show)
 
 	def index
-		@reviews = Review.all
+		@reviews = Review.join_with_follows.check_conection(current_user).ordered_by_created_at.page(params[:page])
 	end
 
   def new
@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
     	@comment = current_user.comments.new
     	@comments = @review.comments
 		  commontator_thread_show(@review)
+      find_conection
 		end
   end
 
@@ -77,4 +78,9 @@ class ReviewsController < ApplicationController
 	def category_all
 		@categories = Category.distinct.uniq
 	end
+
+  def find_conection
+      @conection = Follow.check_followed(current_user.id, @user.id).first
+      @conection = @conection.present? ? @conection : false
+  end
 end
