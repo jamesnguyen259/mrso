@@ -23,15 +23,15 @@
                   <%= image_tag @film.picture_url, class: "img-fluid"%>
                   <a><h4><%= @film.name %><br/></h4></a>
                   <div class="user_details">
-                    <div class="float-left">
+                    <!-- <div class="float-left">
                       <a href="#">Lifestyle</a>
                       <a href="#">Gadget</a>
-                    </div>
+                    </div> -->
                   </div>
                   <%= @film.description.html_safe %>
-              <blockquote class="blockquote">
+             <!--  <blockquote class="blockquote">
                 <p class="mb-0">MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.</p>
-              </blockquote>
+              </blockquote> -->
 
               <div class="">
               	<p class="movie_option"><strong>Category: </strong><%= @film.categories.pluck(:name).to_sentence %></p>
@@ -39,8 +39,8 @@
                 <p class="movie_option"><strong>Duration: </strong><%= @film.duration %></p>
               	<p class="movie_option"><strong>Director: </strong><%= @film.author %></p>
               </div>
-              <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
-              <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
+              <!-- <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>
+              <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p> -->
                   <div class="news_d_footer">
                                     <%= social_share_button_tag("Film: " + @film.name + " in MRSO", :image => @film.picture_url) %>
 
@@ -108,9 +108,9 @@
                                   <div class="br"></div>
                               </aside>
                               <% end %>
-                            <aside class="single_sidebar_widget popular_post_widget">
+                            <!-- <aside class="single_sidebar_widget popular_post_widget">
                                 <h3 class="widget_title">Popular Posts</h3>
-                                <!-- <div class="media post_item">
+                                <div class="media post_item">
                                     <img src="img/blog/popular-post/post1.jpg" alt="post">
                                     <div class="media-body">
                                         <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
@@ -138,8 +138,8 @@
                                         <p>01 Hours ago</p>
                                     </div>
                                 </div>
-                                <div class="br"></div> -->
-                            </aside>
+                                <div class="br"></div>
+                            </aside> -->
                             <%= render "layouts/category" %>
                             <!-- <h4 class="widget_title">Tag Clouds</h4>
                             <aside class="single-sidebar-widget tag_cloud_widget">

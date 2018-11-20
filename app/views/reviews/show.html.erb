@@ -7,10 +7,10 @@
                   <a><h4>Review for Film: <%=link_to @film.name, @film, class: "h1" %><br/></h4></a>
                   <h6 class="typo-list">Posted by <%= @user.email %></h6>
                   <div class="user_details">
-                    <div class="float-left">
+                    <!-- <div class="float-left">
                       <a href="#">Lifestyle</a>
                       <a href="#">Gadget</a>
-                    </div>
+                    </div> -->
                   </div>
                   <%= @review.content.html_safe %>
           <%= render "rater/rater_form" %>

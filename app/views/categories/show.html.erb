@@ -2,6 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
+            <h3 align="center">Category: <%= @category.name %></h3>
+            <br>
             <div class="blog_left_sidebar">
             	<% @films.each do |film| %>
                 <article class="blog_style1">
@@ -10,7 +12,7 @@
                 	</div>
                 	<div class="blog_text">
           					<div class="blog_text_inner">
-          						<a class="cat" href="#">Gadgets</a>
+          						<!-- <a class="cat" href="#">Gadgets</a> -->
           						<a><h4><%= link_to film.name, film, class: "mb-30 title_color" %></h4></a>
           						<p><%= film.description.html_safe %></p>
           						<div class="date">

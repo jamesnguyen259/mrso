@@ -4,10 +4,10 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- <link rel="icon" href="img/favicon.png" type="image/png"> -->
+        <link rel="icon" href="images/logo.png" type="image/png">
         <title>MRSO</title>
         <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
         <!-- Bootstrap CSS -->
 
@@ -31,7 +31,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
               <ul class="nav navbar-nav menu_nav">
-                <li class="nav-item active"><%= link_to "Home", root_path, class: "nav-link" %></li>
+                <%= link_to root_path do %>
+                <%= image_tag "logo.png"%>
+                <% end %>
+                <!-- <li class="nav-item active"><%= link_to "Home", root_path, class: "nav-link" %></li> -->
                 <li class="nav-item"><%= link_to "Review", reviews_path, class: "nav-link" %></li>
                 <!-- <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
